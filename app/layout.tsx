@@ -1,8 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter,Poppins,Roboto_Mono} from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ['greek'],
+  display: 'swap',
+  variable: '--font-inter',
+})
+ 
+const roboto_mono = Roboto_Mono({
+  subsets: ['greek'],
+  display: 'swap',
+  variable: '--font-roboto-mono',
+})
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <ClerkProvider>
+    <html lang="en" className="font-sans">
+      <body className={`${inter.variable} ${roboto_mono.variable}` }>{children}</body>
     </html>
+    </ClerkProvider>
   );
 }
