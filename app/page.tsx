@@ -7,7 +7,6 @@ import { UserButton, UserProfile } from "@clerk/clerk-react";
 import Templatecard from "./dashboard/_components/Templatecard";
 import Templates from '@/app/(data)/Templates'
 import { useState } from "react";
-import { Heart } from "lucide-react";
 
 export interface Template {
   name: string;
